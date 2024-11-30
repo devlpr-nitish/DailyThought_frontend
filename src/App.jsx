@@ -12,7 +12,7 @@ import MyCollege from "../pages/MyCollege.jsx";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen pb-16 mb-16"> {/* Add padding bottom to prevent content from being hidden by footer */}
+      <div className="flex flex-col min-h-screen"> {/* Add padding bottom to prevent content from being hidden by footer */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +23,6 @@ function App() {
           <Route path="/add" element={<ThoughtSubmissionForm />} />
         </Routes>
       </div>
-      <Footer />
     </Router>
   );
 }

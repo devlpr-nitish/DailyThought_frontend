@@ -3,6 +3,7 @@ import Thought from "../components/Thought";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
 import { showErrorToast } from "../utils/toastConfig.js"; // Toast notifications
+import Footer from "../components/Footer.jsx";
 
 const MyCollege = () => {
   const [thoughts, setThoughts] = useState([]); // State to hold the thoughts
@@ -27,16 +28,18 @@ const MyCollege = () => {
           return;
         }
 
-        const response = await fetch(`http://localhost:3000/api/thoughts/${college}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            'Authorization': token, // Attach the token in the Authorization header
-          },
-        });
+        const response = await fetch(
+          `http://localhost:3000/api/thoughts/${college}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: token, // Attach the token in the Authorization header
+            },
+          }
+        );
 
         // console.log(response);
-        
 
         if (response.ok) {
           const data = await response.json();
@@ -57,45 +60,52 @@ const MyCollege = () => {
     fetchThoughts();
   }, [isLoggedIn, college]); // Dependency includes `college` and `isLoggedIn`
 
-  const sortedThoughts = thoughts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  const sortedThoughts = thoughts.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
 
   return (
-    <div>
-      <div className="relative text-center p-2">
-        <span className="mx-2">Your College: {college?.replace(/-/g, " ")}</span>
-      </div>
-      <div className="text-center">
-        <button className="ml-4 py-2 px-4 border-2 border-black cursor-pointer mr-4 mt-4">
-          <Link to="/add" className="flex justify-center items-center">
-            <IoMdAdd className="inline-block mr-2" />
-            Add Thoughts
-          </Link>
-        </button>
-      </div>
+    <>
+      <div className="min-h-screen">
+        <div className="relative text-center p-2">
+          <span className="mx-2">
+            Your College: {college?.replace(/-/g, " ")}
+          </span>
+        </div>
+        <div className="text-center">
+          <button className="ml-4 py-2 px-4 border-2 border-black cursor-pointer mr-4 mt-4">
+            <Link to="/add" className="flex justify-center items-center">
+              <IoMdAdd className="inline-block mr-2" />
+              Add Thoughts
+            </Link>
+          </button>
+        </div>
 
-      <div className="px-10">
-        {loading ? (
-          <p>Loading thoughts...</p>
-        ) : error ? (
-          <p className="text-red-500">{error}</p>
-        ) : (
-          <div>
-            {thoughts?.length === 0 ? (
-              <p>No thoughts found</p>
-            ) : (
-              sortedThoughts?.map((thought) => (
-                <Thought
-                  key={thought._id}
-                  thought={thought}
-                  setThoughts={setThoughts} // Pass state updater to handle deletion
-                  thoughts={thoughts}
-                />
-              ))
-            )}
-          </div>
-        )}
+        <div className="px-10">
+          {loading ? (
+            <p>Loading thoughts...</p>
+          ) : error ? (
+            <p className="text-red-500">{error}</p>
+          ) : (
+            <div>
+              {thoughts?.length === 0 ? (
+                <p>No thoughts found</p>
+              ) : (
+                sortedThoughts?.map((thought) => (
+                  <Thought
+                    key={thought._id}
+                    thought={thought}
+                    setThoughts={setThoughts} // Pass state updater to handle deletion
+                    thoughts={thoughts}
+                  />
+                ))
+              )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
