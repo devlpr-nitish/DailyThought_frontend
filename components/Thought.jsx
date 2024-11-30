@@ -41,12 +41,12 @@ const Thought = ({ thought, thoughts, setThoughts }) => {
       }
 
       const response = await fetch(
-        `http://localhost:3000/api/thoughts/${thought._id}`,
+        `https://dailythoughts-backend.onrender.com/api/thoughts/${thought._id}`,
         {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            Authorization: token,
+            'Authorization': token,
           },
         }
       );

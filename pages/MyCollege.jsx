@@ -29,7 +29,7 @@ const MyCollege = () => {
         }
 
         const response = await fetch(
-          `http://localhost:3000/api/thoughts/${college}`,
+          `https://dailythoughts-backend.onrender.com/api/thoughts/${college}`,
           {
             method: "GET",
             headers: {

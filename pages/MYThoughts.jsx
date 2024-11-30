@@ -24,7 +24,7 @@ const MYThoughts = () => {
           return;
         }
 
-        const response = await fetch("http://localhost:3000/api/thoughts/", {
+        const response = await fetch("https://dailythoughts-backend.onrender.com/api/thoughts/", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

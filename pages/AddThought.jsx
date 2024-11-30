@@ -29,7 +29,7 @@ const ThoughtSubmissionForm = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:3000/api/thoughts/add', {
+      const response = await fetch('https://dailythoughts-backend.onrender.com/api/thoughts/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
