@@ -8,7 +8,7 @@ const Home = () => {
   // State to control modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [college, setCollege] = useState(null);
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const isLoggedIn = localStorage.getItem("token");
 
   const collegeSelected = localStorage.getItem("college");
 
@@ -56,18 +56,12 @@ const Home = () => {
             </button>
           )}
 
-          {!collegeSelected ? (
-            <button
-              onClick={openModal}
-              className="py-2 px-4 border-2 text-white bg-black border-black cursor-pointer"
-            >
-              Select College
-            </button>
-          ) : (
-            <button className="py-2 px-4 border-2 text-white bg-black border-black cursor-pointer">
-              <Link to="thoughts">Thoughts</Link>
-            </button>
-          )}
+          <button
+            // onClick={openModal}
+            className="py-2 px-4 border-2 text-white bg-black border-black cursor-pointer"
+          >
+            <Link to="/my-college">Thoughts</Link>
+          </button>
         </div>
 
         {/* Modal */}
@@ -118,8 +112,6 @@ const Home = () => {
           </div>
         )}
       </div>
-
-      <Footer />
     </>
   );
 };
