@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-screen flex justify-center items-center">
+      <div className="h-screen flex justify-center items-center bg-gray-100">
         <div className="text-center">
           <p className="text-4xl">
             People sharing their daily thoughts without identity,{" "}
