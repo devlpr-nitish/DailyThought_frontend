@@ -55,7 +55,7 @@ const MYThoughts = () => {
 
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gray-100">
         <div className="text-center">
           <button className="ml-4 py-2 px-4 border-2 border-black cursor-pointer mr-4 mt-4">
             <Link to="/add" className="flex justify-center items-center">

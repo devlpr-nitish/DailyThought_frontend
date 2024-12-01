@@ -5,6 +5,7 @@ import { showSuccessToast, showErrorToast } from "../utils/toastConfig.js";
 const Thought = ({ thought, thoughts, setThoughts }) => {
   console.log(thought);
   const userId = localStorage.getItem("userId");
+  const myThoughtLabel = thought.user == userId.toString();
 
   const extractTime12HourFormat = (dateString) => {
     const date = new Date(dateString);
@@ -46,7 +47,7 @@ const Thought = ({ thought, thoughts, setThoughts }) => {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            'Authorization': token,
+            Authorization: token,
           },
         }
       );
@@ -65,22 +66,21 @@ const Thought = ({ thought, thoughts, setThoughts }) => {
     }
   };
 
- 
-
   return (
-    <div className="flex flex-col bg-gray-100 m-6 p-2">
+    <div className={`flex flex-col m-6 p-2 rounded-sm ${myThoughtLabel ? "bg-black opacity-90 text-white" :"bg-white text-black"}`}>
       <div className="flex justify-between">
         <div className="profile_img flex items-center cursor-pointer w-1/4">
-          <div className="px-3 py-2 border-2 h-10 w-10 text-center border-black rounded-full shadow-md">
+          <div className={`px-3 py-2 border-2 h-10 w-10 text-center ${myThoughtLabel ? "border-white" : "border-black" } rounded-full shadow-md`}>
             ?
           </div>
           <div className="name mx-4">anonymous</div>
           <div className="">{extractTime12HourFormat(thought.createdAt)}</div>
         </div>
-        {thought.user == userId.toString() && (
+
+        {myThoughtLabel && (
           <div>
             <MdDelete
-              className="font-bold text-xl cursor-pointer"
+              className="font-bold text-xl cursor-pointer text-white"
               onClick={deleteThought}
             />
           </div>

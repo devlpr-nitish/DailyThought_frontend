@@ -55,7 +55,16 @@ const SignUpForm = () => {
     "Banasthali Vidyapith", "NIT Durgapur", "National Institute of Design (NID), Ahmedabad", "Srishti Institute of Art, Design and Technology, Bangalore",
     "Shivaji University, Kolhapur", "Banaras Hindu University, Varanasi", "University of Calcutta, Kolkata",
     "Aligarh Muslim University (AMU), Aligarh", "Jamia Millia Islamia, Delhi", "Tata Memorial Centre, Mumbai",
-    "Loyola College, Chennai", "Ranchi University", "Kolkata University", "Mumbai University","Gulzar Group Of Institutes"
+    "Loyola College, Chennai", "Ranchi University", "Kolkata University", "Mumbai University","Gulzar Group Of Institutes",
+    "Punjab Agricultural University",
+    "Guru Nanak Dev Engineering College",
+    "Dayanand Medical College and Hospital",
+    "Christian Medical College",
+    "Chandigarh University",
+    "Lovely professional University",
+    "SCD Government College",
+    "Arya College",
+    "PCTE Group of Institutes"
   ];
   
 
@@ -78,8 +87,8 @@ const SignUpForm = () => {
           navigate('/signin');
         },1500)
       } else {
-        const errorData = await response.json();
-        showErrorToast(errorData.message || 'Something went wrong');
+        const errorData = await response.json();        
+        showErrorToast(errorData.error.errors?.username?.message || errorData.error.errors?.password?.message || 'Something went wrong');
       }
     } catch (error) {
       console.error('Error:', error);

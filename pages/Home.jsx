@@ -6,33 +6,8 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   // State to control modal visibility
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [college, setCollege] = useState(null);
   const isLoggedIn = localStorage.getItem("token");
 
-  const collegeSelected = localStorage.getItem("college");
-
-  const navigate = useNavigate();
-  // Function to open the modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleSumit = (e) => {
-    e.preventDefault();
-    setCollege(college);
-
-    localStorage.setItem("college", college);
-
-    navigate("/thoughts");
-  };
-
-  console.log(localStorage.getItem("college"));
   return (
     <>
       <div className="h-screen flex justify-center items-center">

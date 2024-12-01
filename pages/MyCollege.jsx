@@ -24,6 +24,9 @@ const MyCollege = () => {
         const token = localStorage.getItem("token"); // Get token from localStorage
         if (!token) {
           setError("You must be logged in to view your thoughts.");
+          setTimeout(()=>{
+            navigate("/signin");
+          },1500)
           setLoading(false);
           return;
         }
@@ -66,7 +69,7 @@ const MyCollege = () => {
 
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gray-100">
         <div className="relative text-center p-2">
           <span className="mx-2">
             Your College: {college?.replace(/-/g, " ")}

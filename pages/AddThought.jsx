@@ -44,7 +44,9 @@ const ThoughtSubmissionForm = () => {
         showSuccessToast('Your thought has been submitted!');
       } else {
         const errorData = await response.json();
-        showErrorToast(errorData.message || 'Failed to submit thought.');
+        console.log(errorData);
+        
+        showErrorToast(errorData.error || 'Failed to submit thought.');
       }
     } catch (error) {
       console.error('Error:', error);
