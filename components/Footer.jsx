@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -6,12 +7,23 @@ const Footer = () => {
       <div className="container mx-auto text-center">
         {/* Copyright and Made with Heart */}
         <div className="mb-4">
-          <p>&copy; 2024 DayThoughts All rights reserved.</p>
+          <div className="flex justify-center items-center flex-wrap">
+            <p>&copy; 2024 DayThoughts All rights reserved.</p>
+            <div className="text-sm text-gray-600 mx-4">
+              <Link
+                to="/terms-conditions"
+                className="text-blue-600 hover:underline"
+              >
+                Terms and Conditions
+              </Link>
+              .
+            </div>
+          </div>
           <p className="text-sm">
             Made with ❤️ by <span className="font-semibold">Nitish</span>
           </p>
         </div>
-        
+
         {/* Social Media Links */}
         <div className="flex justify-center space-x-6">
           {/* Instagram */}
