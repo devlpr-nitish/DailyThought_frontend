@@ -8,6 +8,7 @@ import SignInForm from "../pages/Signin.jsx";
 import ThoughtSubmissionForm from "../pages/AddThought.jsx";
 import Footer from "../components/Footer.jsx";
 import MyCollege from "../pages/MyCollege.jsx";
+import TermsAndConditions from "../pages/TermsAndConditions.jsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/my-thoughts" element={<MYThoughts />} />
           <Route path="/my-college" element={<MyCollege />} />
           <Route path="/add" element={<ThoughtSubmissionForm />} />
+          <Route path="/terms-conditions" element={<TermsAndConditions />} />
         </Routes>
       </div>
     </Router>

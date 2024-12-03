@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { showSuccessToast, showErrorToast } from '../utils/toastConfig.js'; // Adjust the path as needed
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
   const [username, setUsername] = useState('');
@@ -171,6 +171,13 @@ const SignUpForm = () => {
           >
             Sign Up
           </button>
+          {/* Terms and Conditions */}
+          <div className="text-sm text-gray-600 mt-6">
+            By signing up, you agree to our{' '}
+            <Link to="/terms-conditions" className="text-blue-600 hover:underline">
+              Terms and Conditions
+            </Link>.
+          </div>
         </form>
       </div>
       <ToastContainer />
