@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { showSuccessToast, showErrorToast } from "../utils/toastConfig.js";
 
 const Thought = ({ thought, thoughts, setThoughts }) => {
-  console.log(thought);
+  // console.log(thought);
   const userId = localStorage.getItem("userId");
   const myThoughtLabel = thought.user == userId.toString();
 
@@ -73,7 +73,7 @@ const Thought = ({ thought, thoughts, setThoughts }) => {
           <div className={`px-3 py-2 border-2 h-10 w-10 text-center ${myThoughtLabel ? "border-white" : "border-black" } rounded-full shadow-md`}>
             ?
           </div>
-          <div className="name mx-4">{thought.username.length > 8 ? thought.username.slice(0, 8) + "..." : thought.username || "anonymous"}</div>
+          <div className="name mx-4">{thought?.username?.length > 8 ? thought?.username.slice(0, 8) + "..." : thought?.username || "anonymous"}</div>
           <div className="">{extractTime12HourFormat(thought.createdAt)}</div>
         </div>
 
