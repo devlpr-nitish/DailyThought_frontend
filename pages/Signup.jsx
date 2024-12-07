@@ -66,6 +66,8 @@ const SignUpForm = () => {
     "Arya College",
     "PCTE Group of Institutes"
   ];
+
+  colleges.sort();
   
 
   const handleSubmit = async (e) => {

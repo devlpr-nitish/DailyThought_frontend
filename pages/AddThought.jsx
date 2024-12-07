@@ -42,6 +42,9 @@ const ThoughtSubmissionForm = () => {
       if (response.ok) {
         setThought(''); // Clear the input field
         showSuccessToast('Your thought has been submitted!');
+        setTimeout(()=>{
+          navigate("/my-college");
+        },1000)
       } else {
         const errorData = await response.json();
         console.log(errorData);

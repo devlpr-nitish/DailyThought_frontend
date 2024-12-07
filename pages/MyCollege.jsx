@@ -72,7 +72,7 @@ const MyCollege = () => {
       <div className="min-h-screen bg-gray-100">
         <div className="relative text-center p-2">
           <span className="mx-2">
-            Your College: {college?.replace(/-/g, " ")}
+            Your College: <span className="font-bold">{college?.replace(/-/g, " ")}</span>
           </span>
         </div>
         <div className="text-center">
